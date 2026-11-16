@@ -1,0 +1,13 @@
+.tarjetaConsulta {
+  margin: 20px;
+}
+
+.resultado {
+  font-size: 20px;
+  font-weight: bold;
+  min-height: 28px;
+}
+
+.festivo {
+  color: #2e7d32;
+}

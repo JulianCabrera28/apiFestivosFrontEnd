@@ -1,0 +1,61 @@
+<mat-toolbar class="barraTituloCRUD">
+  <mat-icon>calendar_month</mat-icon>
+  <div class="barraTituloCRUD">
+    Consulta de Festivos
+  </div>
+</mat-toolbar>
+
+<mat-card class="tarjetaConsulta">
+  <mat-card-header>
+    <mat-card-title>Validación de fecha festiva</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="controles">
+      <mat-form-field appearance="fill">
+        <mat-label>País</mat-label>
+        <mat-select [(value)]="idPaisVerificacion">
+          <mat-option *ngFor="let pais of paises()" [value]="pais.id">
+            {{ pais.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="selectorFecha" [(ngModel)]="fechaEscogida">
+        <mat-datepicker-toggle matSuffix [for]="selectorFecha"></mat-datepicker-toggle>
+        <mat-datepicker #selectorFecha></mat-datepicker>
+      </mat-form-field>
+      <button matButton="filled" (click)="verificar()">Verificar</button>
+    </div>
+    <p class="resultado" [class.festivo]="resultadoVerificacion().includes('Es Festivo')">
+      {{ resultadoVerificacion() }}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="tarjetaConsulta">
+  <mat-card-header>
+    <mat-card-title>Festivos de un país durante un año</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="controles">
+      <mat-form-field appearance="fill">
+        <mat-label>País</mat-label>
+        <mat-select [(value)]="idPaisListado">
+          <mat-option *ngFor="let pais of paises()" [value]="pais.id">
+            {{ pais.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Año</mat-label>
+        <input matInput type="number" [(ngModel)]="anioListado" min="1" max="9998">
+      </mat-form-field>
+      <button matButton="filled" (click)="listarFestivos()">Listar Festivos</button>
+    </div>
+    <ngx-datatable [rows]="festivos()" class="dark" [columns]="columnas"
+                   [headerHeight]="50" [footerHeight]="50" [limit]="10"
+                   [columnMode]="modoColumna.force" [selectionType]="tipoSeleccion.single"
+    ></ngx-datatable>
+  </mat-card-content>
+</mat-card>

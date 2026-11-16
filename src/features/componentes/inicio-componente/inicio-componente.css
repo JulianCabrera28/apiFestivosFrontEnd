@@ -1,0 +1,16 @@
+.portada {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.tarjetaPortada {
+  max-width: 700px;
+}
+
+.iconoPortada {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: #241663;
+}

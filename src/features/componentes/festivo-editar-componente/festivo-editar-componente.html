@@ -1,0 +1,42 @@
+<div mat-dialog-content>
+  <h2>{{datos.encabezado}}</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="datos.festivo.nombre">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Día</mat-label>
+    <input matInput type="number" [(ngModel)]="datos.festivo.dia">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Mes</mat-label>
+    <input matInput type="number" [(ngModel)]="datos.festivo.mes">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Días Pascua</mat-label>
+    <input matInput type="number" [(ngModel)]="datos.festivo.diasPascua">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo</mat-label>
+    <mat-select [(value)]="datos.festivo.idTipo">
+      <mat-option *ngFor="let tipo of tipos()" [value]="tipo.id">
+        {{ tipo.descripcion }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>País</mat-label>
+    <mat-select [(value)]="datos.festivo.idPais">
+      <mat-option *ngFor="let pais of paises()" [value]="pais.id">
+        {{ pais.nombre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button matButton="filled" [mat-dialog-close]="datos">Aceptar</button>
+  <button matButton="tonal" [mat-dialog-close]="">Cancelar</button>
+</div>
