@@ -116,7 +116,7 @@ export class PaisComponente implements OnInit {
           height: '300px',
           data: {
             encabezado: `Editando el país [${this.paisEscogido.nombre}]`,
-            pais: this.paisEscogido
+            pais: { ...this.paisEscogido }
           },
           disableClose: true
         }

@@ -116,7 +116,7 @@ export class TipoComponente implements OnInit {
           height: '300px',
           data: {
             encabezado: `Editando el tipo [${this.tipoEscogido.descripcion}]`,
-            tipo: this.tipoEscogido
+            tipo: { ...this.tipoEscogido }
           },
           disableClose: true
         }

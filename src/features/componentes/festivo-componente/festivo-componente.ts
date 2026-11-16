@@ -121,7 +121,7 @@ export class FestivoComponente implements OnInit {
           height: '560px',
           data: {
             encabezado: `Editando el festivo [${this.festivoEscogido.nombre}]`,
-            festivo: this.festivoEscogido
+            festivo: { ...this.festivoEscogido }
           },
           disableClose: true
         }
